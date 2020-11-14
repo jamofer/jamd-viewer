@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 from argparse import ArgumentParser
 
-import jamd_viewer
+from jamd import jamd_viewer
 
 
 def parse_arguments():
@@ -11,6 +11,10 @@ def parse_arguments():
     return arguments.parse_args()
 
 
-if __name__ == '__main__':
+def main():
     arguments = parse_arguments()
     jamd_viewer.run(arguments.path)
+
+
+if __name__ == '__main__':
+    main()
