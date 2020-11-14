@@ -1,6 +1,5 @@
-from http import HTTPStatus
 from unittest import TestCase
-from unittest.mock import patch, MagicMock
+from mock import patch, MagicMock
 
 import jamd_viewer
 import markdown_parser
@@ -33,7 +32,7 @@ class TestJamdViewer(TestCase):
         jamd_viewer.run('README.md')
         response = self.client.get('/')
 
-        assert response.status_code == HTTPStatus.OK
+        assert response.status_code == 200
         assert response.data == b'html_result'
         self.FlaskDesktopUI.assert_called_once_with(jamd_viewer.app)
         self.flask_desktop_ui.run.assert_called_once()
