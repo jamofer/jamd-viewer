@@ -7,10 +7,11 @@ from flask_desktop_ui import FlaskDesktopUI
 from jamd import markdown_parser
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='')
 
 
 def run(path):
+    app.static_folder = os.path.dirname(os.path.abspath(path))
     markdown_contents = ''
 
     if os.path.exists(path):
