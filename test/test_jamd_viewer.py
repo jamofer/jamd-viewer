@@ -1,8 +1,8 @@
 from unittest import TestCase
 from mock import patch, MagicMock
 
-import jamd_viewer
-import markdown_parser
+from jamd import jamd_viewer
+from jamd import markdown_parser
 
 
 class TestJamdViewer(TestCase):
@@ -10,7 +10,7 @@ class TestJamdViewer(TestCase):
         self.markdown = patch('markdown.markdown').start()
         jamd_viewer.app.testing = True
         self.client = jamd_viewer.app.test_client()
-        self.FlaskDesktopUI = patch('jamd_viewer.FlaskDesktopUI').start()
+        self.FlaskDesktopUI = patch('jamd.jamd_viewer.FlaskDesktopUI').start()
 
         self.flask_desktop_ui = MagicMock()
         self.FlaskDesktopUI.return_value = self.flask_desktop_ui

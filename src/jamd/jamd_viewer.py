@@ -1,9 +1,10 @@
+#!/usr/bin/env python
 import os
 
 from flask import Flask
 from flask_desktop_ui import FlaskDesktopUI
 
-import markdown_parser
+from jamd import markdown_parser
 
 
 app = Flask(__name__)
