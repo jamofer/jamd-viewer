@@ -24,21 +24,21 @@ class GithubMarkdownTemplate(object):
     </style>
     '''
 
-    github_markdown_css = f'''
+    github_markdown_css = '''
     <style>
-        {shell.read_file(GITHUB_MARKDOWN_CSS_PATH)}
+        {css}
     </style>
-    '''
+    '''.format(css=shell.read_file(GITHUB_MARKDOWN_CSS_PATH))
 
     def __init__(self, markdown_html):
         self.markdown_html = markdown_html
 
     @property
     def html(self):
-        content = f'''
+        content = '''
         <article class="markdown-body">
-            {self.markdown_html}
+            {template}
         </article>
-        '''
+        '''.format(template=self.markdown_html)
 
         return self.header + self.github_markdown_css + content

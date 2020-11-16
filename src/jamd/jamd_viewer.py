@@ -32,7 +32,7 @@ def run(path, style=None):
     global template
 
     if not shell.file_exists(path):
-        markdown_contents = f'File `{path}` does not exist'
+        markdown_contents = 'File `{path}` does not exist'.format(path=path)
         template = _style_template(style)
         FlaskDesktopUI(app).run()
         return
